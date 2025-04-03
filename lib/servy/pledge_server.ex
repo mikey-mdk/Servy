@@ -10,9 +10,9 @@ defmodule Servy.PledgeServer do
 
   # Client Processes
 
-  def start do
+  def start_link(_arg) do
     IO.puts "Starting the pledge server!"
-    _pid = GenServer.start(__MODULE__, %State{}, name: @name)
+    _pid = GenServer.start_link(__MODULE__, %State{}, name: @name)
   end
 
   def create_pledge(name, amount) do
@@ -87,7 +87,7 @@ end
 
 alias Servy.PledgeServer
 
-{:ok, _pid} = PledgeServer.start()
+{:ok, _pid} = PledgeServer.start_link([])
 
 PledgeServer.set_cache_size(3)
 
