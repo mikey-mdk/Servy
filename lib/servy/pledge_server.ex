@@ -87,7 +87,7 @@ end
 
 alias Servy.PledgeServer
 
-{:ok, _pid} = PledgeServer.start_link([])
+_response = PledgeServer.start_link([])
 
 PledgeServer.set_cache_size(3)
 
