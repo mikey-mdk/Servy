@@ -4,6 +4,7 @@ defmodule Servy.MixProject do
   def project do
     [
       app: :servy,
+      description: "A humble HTTP server",
       version: "0.1.0",
       elixir: "~> 1.18.3",
       start_permanent: Mix.env() == :dev,
@@ -14,7 +15,9 @@ defmodule Servy.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger, :runtime_tools, :wx, :observer]
+      extra_applications: [:logger, :runtime_tools, :wx, :observer],
+      mod: {Servy, []},
+      env: [port: 3000]
     ]
   end
 
